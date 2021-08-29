@@ -12,8 +12,8 @@ export const Start = ({navigation}) => {
 
   return (
     <SafeAreaView  style={styles.container}>
-      <ImageBackground source={require('../assets/start.png')} style={styles.image}>
-        <Image source={require('../assets/logo.png')} style={styles.logo} />
+      <ImageBackground source={require('../../img/start/start.png')} style={styles.image}>
+        <Image source={require('../../img/start/logo.png')} style={styles.logo} />
         <TouchableOpacity style={styles.SignUpButton} onPress={ SignUpFunction }>
             <Text style={styles.TextStyle}> SIGN UP </Text>    
         </TouchableOpacity>

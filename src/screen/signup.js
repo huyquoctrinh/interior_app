@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { View, Image, ImageBackground, StyleSheet, Text, SafeAreaView, Dimensions, Alert, TouchableOpacity } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import { TextInput } from 'react-native-paper';
 
 export const SignUp = ({navigation}) => { 
@@ -10,27 +12,10 @@ export const SignUp = ({navigation}) => {
   const [statPass, setStatPass] = React.useState(true); 
   const [statConfirmPass, setStatConfirmPass] = React.useState(true); 
 
-
-  const onPressPassword = () => { 
-    if (statPass == true) { 
-      setStatPass(false);
-    } else  { 
-      setStatPass(true); 
-    }
-  }
-
-  const onPressConfirmPassword = () => { 
-    if (statConfirmPass == true) { 
-      setStatConfirmPass(false);
-    } else  { 
-      setStatConfirmPass(true); 
-    }
-  }
-
   return (
     <SafeAreaView  style={styles.container}>
       <View style={{marginTop:'10%', marginLeft:'5%'}}>
-        <TextInput.Icon name="arrow-left" onPress={() => { navigation.navigate('Start'); }}/>
+        <MaterialIcons name="arrow-back-ios" size={20} onPress={() => { navigation.goBack(); }}/>
       </View>
       <Text style={styles.SignUpText}> Sign Up </Text>
       <TextInput
@@ -53,7 +38,7 @@ export const SignUp = ({navigation}) => {
         underlineColor='#BBB8B8'
         style={{marginLeft: '5%', width:'90%', marginTop: 10,}}
         secureTextEntry={statPass}
-        right={<TextInput.Icon name="eye" onPress={onPressPassword}/>}  
+        right={<TextInput.Icon name="eye" onPress={() => { setStatPass(!statPass); }}/>}  
       />
       <TextInput
         label="Confirm Password"
@@ -65,7 +50,7 @@ export const SignUp = ({navigation}) => {
         underlineColor='#BBB8B8'
         style={{marginLeft: '5%', width:'90%', marginTop: 10,}}
         secureTextEntry={statConfirmPass}
-        right={<TextInput.Icon name="eye" onPress={onPressConfirmPassword}/>}  
+        right={<TextInput.Icon name="eye" onPress={() => { setStatConfirmPass(!statConfirmPass); }}/>}  
       />
       <TextInput
         label="Phone"
@@ -78,7 +63,7 @@ export const SignUp = ({navigation}) => {
         style={{marginLeft: '5%', width:'90%', marginTop: 10,}}
       />
       <TouchableOpacity style={{justifyContent:'center', alignItems:'center',width:80,height:80,borderRadius:40,backgroundColor:'#008E97',alignSelf: 'flex-end',right: '5%',marginTop:'15%'}} onPress={() => Alert.alert('alo')}>
-        <TextInput.Icon name="arrow-right" onPress={() => Alert.alert('alo')} />
+        <AntDesign name='arrowright' size={25} color='#fff'/>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -90,6 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#fff',
   },
+  
   SignUpText: {
     fontWeight: 'bold', 
     marginTop: '10%', 

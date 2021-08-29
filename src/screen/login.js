@@ -1,5 +1,8 @@
 import * as React from 'react';
 import { View, Image, ImageBackground, StyleSheet, Text, SafeAreaView, Dimensions, Alert, TouchableOpacity } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { TextInput } from 'react-native-paper';
 
 export const Login = ({navigation}) => { 
@@ -7,18 +10,10 @@ export const Login = ({navigation}) => {
   const [password, setPassword] = React.useState('');
   const [statPass, setStatPass] = React.useState(true); 
 
-  const onPressPassword = () => { 
-    if (statPass == true) { 
-      setStatPass(false);
-    } else  { 
-      setStatPass(true); 
-    }
-  }
-
   return (
     <SafeAreaView  style={styles.container}>
       <View style={{marginTop:'10%', marginLeft:'5%'}}>
-        <TextInput.Icon name="arrow-left" onPress={() => { navigation.navigate('Start'); }}/>
+        <MaterialIcons name="arrow-back-ios" size={20} onPress={() => { navigation.goBack(); }}/>
       </View>
       <Text style={styles.LoginText}> Login </Text>
       <TextInput
@@ -41,25 +36,25 @@ export const Login = ({navigation}) => {
         underlineColor='#BBB8B8'
         style={{marginLeft: '5%', width:'90%', marginTop: 10,}}
         secureTextEntry={statPass}
-        right={<TextInput.Icon name="eye" onPress={onPressPassword}/>}  
+        right={<TextInput.Icon name="eye" onPress={() => { setStatPass(!statPass); }}/>}  
       />
       <TouchableOpacity>
         <Text style={{textAlign: 'right', marginRight: '5%', marginTop: 10,}}> 
           Forgot your password? 
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{justifyContent:'center', alignItems:'center',width:80,height:80,borderRadius:40,backgroundColor:'#008E97',alignSelf: 'flex-end',right: '5%',marginTop:'15%'}} onPress={() => Alert.alert('alo')}>
-        <TextInput.Icon name="arrow-right" onPress={() => Alert.alert('alo')} />
+      <TouchableOpacity style={{justifyContent:'center', alignItems:'center',width:80,height:80,borderRadius:40,backgroundColor:'#008E97',alignSelf: 'flex-end',right: '5%',marginTop:'15%'}} onPress={() => { navigation.navigate('Tabbar'); }}>
+        <AntDesign name='arrowright' size={25} color='#fff'/>
       </TouchableOpacity>
       <View style={{alignItems:'center', alignItems: 'center'}}> 
         <TouchableOpacity style={styles.LoginFB}>
-          <Image source={require('../assets/fbicon.png')} style={{width:52, height:52}} />
+          <Image source={require('../../img/start/fbicon.png')} style={{width:52, height:52}} />
           <Text style={{fontSize:19,color:'#fff', paddingTop: 10}}> Login with Facebook </Text>
         </TouchableOpacity> 
       </View>
       <View style={{alignItems:'center', alignItems: 'center'}}> 
         <TouchableOpacity style={styles.LoginGG}>
-          <Image source={require('../assets/ggicon.png')} style={{width:52, height:52}} />
+          <Image source={require('../../img/start/ggicon.png')} style={{width:52, height:52}} />
           <Text style={{fontSize:19,color:'#000', paddingTop: 10}}> Login with Google </Text>
         </TouchableOpacity>
       </View> 
@@ -73,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: '#fff',
   },
+  
   LoginText: {
     fontWeight: 'bold', 
     marginTop: '10%', 
@@ -80,6 +76,7 @@ const styles = StyleSheet.create({
     marginLeft: '5%', 
     fontSize: 25,
   },
+
   LoginFB: { 
     flexDirection:'row',
     marginTop:'20%',
@@ -90,6 +87,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: '#1877F2'
   },
+
   LoginGG: { 
     flexDirection:'row',
     marginTop:'5%',

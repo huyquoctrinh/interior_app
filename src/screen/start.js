@@ -1,23 +1,17 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, Text, SafeAreaView, Dimensions, Alert, TouchableOpacity } from 'react-native';
 
+import { fontSizeScale } from '../utility/fontSizeScale'; 
+
 export const Start = ({navigation}) => {
-  const SignUpFunction = () => { 
-    navigation.navigate('SignUp');
-  }
-
-  const LoginFunction = () => { 
-    navigation.navigate('Login');
-  }
-
   return (
     <SafeAreaView  style={styles.container}>
       <ImageBackground source={require('../../img/start/start.png')} style={styles.image}>
         <Image source={require('../../img/start/logo.png')} style={styles.logo} />
-        <TouchableOpacity style={styles.SignUpButton} onPress={ SignUpFunction }>
+        <TouchableOpacity style={styles.SignUpButton} onPress={ () => { navigation.navigate('SignUp'); } }>
             <Text style={styles.TextStyle}> SIGN UP </Text>    
         </TouchableOpacity>
-        <TouchableOpacity style={styles.LoginButton} onPress={ LoginFunction }>
+        <TouchableOpacity style={styles.LoginButton} onPress={ () => { navigation.navigate('Login'); } }>
             <Text style={styles.TextStyle}> LOGIN </Text>    
         </TouchableOpacity>
       </ImageBackground>
@@ -26,7 +20,7 @@ export const Start = ({navigation}) => {
 }
 
 const dimensions = Dimensions.get('window');
-const logoWidth = Math.round(dimensions.width * 65 / 100);
+const logoWidth = Math.round(dimensions.height * 0.299);
 const logoHeight = logoWidth;
 
 const styles = StyleSheet.create({
@@ -67,6 +61,6 @@ const styles = StyleSheet.create({
   TextStyle:{
       color:'#fff',
       textAlign:'center',
-      fontSize: 20,
+      fontSize: fontSizeScale(20),
   },
 });

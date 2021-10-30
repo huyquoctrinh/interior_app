@@ -50,7 +50,7 @@ class Tabbar extends React.Component {
           duration: Math.abs(index - currentIndex) * 50,
           toValue: index * Math.round(ScreenWidth / 5) + 3,
           easing: Easing.linear,
-          useNativeDriver: false,
+          useNativeDriver: true,
         }
       ).start(); 
       setCurrentIndex(index); 
@@ -58,7 +58,7 @@ class Tabbar extends React.Component {
 
     return (
       <View style={{height:Math.round(ScreenHeight * 0.088), borderTopColor:'grey', borderTopWidth:1, flexDirection:'row'}}>
-        <Animated.View style={[styles.AnimationBackground, { marginLeft: marginLeftAnimation, }]}>
+        <Animated.View style={[styles.AnimationBackground, { transform: [{ translateX: marginLeftAnimation, }] }]}>
         </Animated.View>
         {state.routes.map((route, index) => {
           const { options } = descriptors[route.key];

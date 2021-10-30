@@ -68,7 +68,7 @@ class Avatar extends React.Component {
               </Text>
             </View>
           </View>
-          <View style={{height: '100%', width:'40%', alignItems:'center', top:'7%', backgroundColor:'',}}>
+          <View style={{height: '100%', width:'40%', alignItems:'center', top:'7%',}}>
             <Image source={this.props.ava}  style={{width: ScreenWidth*0.24, height: ScreenWidth*0.24, borderRadius: ScreenWidth*0.12}}/>
           </View>
           <Box1 
@@ -96,7 +96,7 @@ class MainShopping extends React.Component {
           <Header/>
           <View style={styles.content}> 
             <Avatar ava={require('../../../img/home/ava1.png')} user='Iron Man' mail='@ironman.Marvel' navigation={this.props.navigation}/>
-            <View style={{flexDirection: 'row', backgroundColor: '', marginBottom: '8%'}}> 
+            <View style={{flexDirection: 'row', marginBottom: '8%'}}> 
               <Box2 
                 height={ScreenHeight * 0.095} width={ScreenHeight * 0.095} style={{flexDirection: 'column', backgroundColor: '#D9EFF9'}} boxStyle={{flex:1}}
                 name='Tracking' logo={require('../../../img/shopping/main/tracking.png')} textStyle={{fontSize: fontSizeScale(12), fontWeight: 'bold', color: '#000'}}
@@ -123,7 +123,7 @@ class MainShopping extends React.Component {
               </Box2> 
             </View>
             <View style={{borderBottomColor: 'black', borderBottomWidth: 1,}}/>
-            <View style={{marginTop: '4%', height: ScreenHeight * 0.13, width: '100%', backgroundColor: '', flexDirection: 'row', }}>
+            <View style={{marginTop: '4%', height: ScreenHeight * 0.13, width: '100%', flexDirection: 'row', }}>
               <Box2 
                 height={ScreenHeight * 0.12} width={ScreenHeight * 0.15} style={{flexDirection: 'column', backgroundColor: '#CCE3B9'}} boxStyle={{flex:1}}
                 name='Payment' logo={require('../../../img/shopping/main/payment.png')} textStyle={{fontSize: fontSizeScale(13), fontWeight: 'bold', color: '#000'}}
@@ -137,7 +137,7 @@ class MainShopping extends React.Component {
               >
               </Box2> 
             </View>
-            <View style={{marginTop: '4%', height: ScreenHeight * 0.13, width: '100%', backgroundColor: '', flexDirection: 'row', }}>
+            <View style={{marginTop: '4%', height: ScreenHeight * 0.13, width: '100%', flexDirection: 'row', }}>
               <Box2 
                 height={ScreenHeight * 0.12} width={ScreenHeight * 0.15} style={{flexDirection: 'column', backgroundColor: '#91D1ED'}} boxStyle={{flex:1}}
                 name='Rating' logo={require('../../../img/shopping/main/rating.png')} textStyle={{fontSize: fontSizeScale(13), fontWeight: 'bold', color: '#000'}}

@@ -20,15 +20,12 @@ class ShowDetail extends React.Component {
             </Text>
             <Image source={this.props.route.params.img} style={{width: '100%', height: ScreenHeight * 0.34, borderRadius: 20, marginTop: '3%', marginBottom: '3%', }}/>
             { this.props.route.params.precost !== undefined ? 
-                <View>
-                  <View style={{position:'absolute', top:'55%', width: '100%', borderColor: 'black', borderTopWidth: 1, }}/>
-                  <Text style={{fontWeight: 500, fontSize: fontSizeScale(17), color: '#7B7B7B'}}>
-                    {this.props.route.params.precost}
-                  </Text>
-                </View>
+                <Text style={{fontWeight: '100', fontSize: fontSizeScale(17), color: '#7B7B7B', textDecorationLine: 'line-through', textDecorationStyle: 'solid', textDecorationColor: '#000',}}>
+                  {this.props.route.params.precost}
+                </Text>
                 : null
             }
-            <Text style={{fontWeight: 500, fontSize: fontSizeScale(17)}}>
+            <Text style={{fontWeight: '100', fontSize: fontSizeScale(17)}}>
               {this.props.route.params.cost}
             </Text>
           </View>
@@ -59,7 +56,6 @@ class ShowDetail extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'',
     paddingTop: Platform.OS === 'android' ? 25 : 0,
     // paddingBottom: 25, 
   },

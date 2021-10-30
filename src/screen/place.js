@@ -5,7 +5,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 class PlaceFurniture extends React.Component { 
 	render() { 
 		return(
-
 			<View	style={{flex: 1, backgroundColor: 'cyan'}}>
 				<MaterialIcons name="arrow-back-ios" size={20} onPress={() => { this.props.navigation.goBack(); }}/>
 				<Text>
